@@ -1,6 +1,4 @@
-"use client"
-
-import { useSession } from "next-auth/react"
+import { useSession } from "@hono/auth-js/react"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { useState } from "react"
@@ -53,23 +51,7 @@ export default function ClientExample() {
         </CustomLink>{" "}
         React Hook.
       </p>
-      <p>
-        It needs the{" "}
-        <CustomLink href="https://react.devreference/nextjs/react/use-client">
-          <code>'use client'</code>
-        </CustomLink>{" "}
-        directive at the top of the file to enable client side rendering, and
-        the{" "}
-        <CustomLink href="https://nextjs.authjs.dev/react#sessionprovider">
-          <code>SessionProvider</code>
-        </CustomLink>{" "}
-        component in{" "}
-        <strong>
-          <code>client-example/page.tsx</code>
-        </strong>{" "}
-        to provide the session data.
-      </p>
-
+      
       {status === "loading" ? (
         <div>Loading...</div>
       ) : (

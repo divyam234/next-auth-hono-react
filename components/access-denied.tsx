@@ -1,4 +1,4 @@
-import { signIn } from "next-auth/react"
+import { signIn } from "@hono/auth-js/react"
 
 export default function AccessDenied() {
   return (

@@ -7,9 +7,10 @@
   },
   "homepage": "https://next-auth-example.vercel.app",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
+    "dev": "vite",
+    "build": "vite build",
+    "dev:esbuild": "esbuild --bundle api.ts --format=esm --watch  --outfile=dist/_worker.js",
+    "dev:wrangler": "wrangler pages dev dist --port 5000"
   },
   "author": "Iain Collins <me@iaincollins.com>",
   "contributors": [
@@ -19,6 +20,8 @@
     "Thang Huu Vu <hi@thvu.dev>"
   ],
   "dependencies": {
+    "@auth/core": "^0.19.0",
+    "@hono/auth-js": "^1.0.1",
     "@radix-ui/react-avatar": "^1.0.3",
     "@radix-ui/react-collapsible": "^1.0.3",
     "@radix-ui/react-dropdown-menu": "^2.0.5",
@@ -26,9 +29,8 @@
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "hono": "^3.11.10",
     "lucide-react": "^0.274.0",
-    "next": "latest",
-    "next-auth": "beta",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwind-merge": "^1.14.0",
@@ -38,9 +40,13 @@
     "@types/node": "^18",
     "@types/react": "^18.2.23",
     "@types/react-dom": "^18.2.8",
+    "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.15",
     "postcss": "^8.4.29",
     "tailwindcss": "^3.3.3",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "vite": "^5.0.10",
+    "vite-tsconfig-paths": "^4.2.2",
+    "wrangler": "^3.22.1"
   }
 }
