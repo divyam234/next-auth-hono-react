@@ -1,20 +1,8 @@
-import { Hono ,Context} from "hono"
-import { authHandler,initAuthConfig,verifyAuth ,AuthConfig} from "@hono/auth-js"
+import { Hono } from "hono"
+import { authHandler,initAuthConfig,verifyAuth} from "@hono/auth-js"
 import GitHub from "@auth/core/providers/github"
 import { cors } from "hono/cors"
 
-function getAuthConfig(c: Context): AuthConfig {
-    return {
-      secret: c.env.AUTH_SECRET,
-      providers: [
-        GitHub({
-          clientId: c.env.GITHUB_ID,
-          clientSecret: c.env.GITHUB_SECRET
-        }),
-      ],
-    }
-  }
-  
 const app = new Hono({ strict: false }).basePath("/")
 
 // app.use(
@@ -28,7 +16,15 @@ const app = new Hono({ strict: false }).basePath("/")
 //   })
 // )
 
-app.use("*", initAuthConfig(getAuthConfig))
+app.use("*", initAuthConfig(c=>({
+  secret: c.env.AUTH_SECRET,
+  providers: [
+    GitHub({
+      clientId: c.env.GITHUB_ID,
+      clientSecret: c.env.GITHUB_SECRET
+    }),
+  ],
+})))
 
 app.use("/api/auth/*", authHandler())
 
