@@ -28,13 +28,20 @@ const createPopup = ({ url, title, height, width }: WindowProps) => {
 
 interface PopupLoginOptions extends Partial<Omit<WindowProps, "url">> {
 	onSuccess?: () => void;
+	callbackUrl?: string;
 }
 
 export const useOauthPopupLogin = (
 	provider: Parameters<typeof signIn>[0],
 	options: PopupLoginOptions = {},
 ) => {
-	const { width = 500, height = 500, title = "Signin", onSuccess } = options;
+	const {
+		width = 500,
+		height = 500,
+		title = "Signin",
+		onSuccess,
+		callbackUrl = "/",
+	} = options;
 
 	const [externalWindow, setExternalWindow] = useState<Window | null>();
 
@@ -43,7 +50,7 @@ export const useOauthPopupLogin = (
 	const popUpSignin = useCallback(async () => {
 		const res = await signIn(provider, {
 			redirect: false,
-			callbackUrl: "/auth/success",
+			callbackUrl,
 		});
 
 		if (res?.error) {
