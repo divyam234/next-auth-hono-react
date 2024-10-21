@@ -10,7 +10,6 @@ export default function Footer() {
       <CustomLink href="https://github.com/nextauthjs/next-auth/tree/main/apps/examples/nextjs">
         Source on GitHub
       </CustomLink>
-      <CustomLink href="/policy">Policy</CustomLink>
     </footer>
   )
 }

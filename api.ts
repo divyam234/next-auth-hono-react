@@ -1,20 +1,9 @@
 import { Hono } from "hono"
 import { authHandler,initAuthConfig,verifyAuth} from "@hono/auth-js"
 import GitHub from "@auth/core/providers/github"
-import { cors } from "hono/cors"
 
 const app = new Hono({ strict: false }).basePath("/")
 
-// app.use(
-//   "*",
-//   cors({
-//     origin: (origin) => origin,
-//     allowHeaders: ["Content-Type"],
-//     allowMethods: ["*"],
-//     maxAge: 86400,
-//     credentials: true,
-//   })
-// )
 
 app.use("*", initAuthConfig(c=>({
   secret: c.env.AUTH_SECRET,

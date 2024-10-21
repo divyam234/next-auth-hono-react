@@ -10,9 +10,6 @@ export function MainNav() {
           <img src="/logo.png" alt="Home" width="32" height="32" />
         </Button>
       </CustomLink>
-      <CustomLink  href="/api/protected">
-       Protected Api Route
-      </CustomLink>
     </div>
   )
 }

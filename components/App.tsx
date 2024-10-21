@@ -1,19 +1,21 @@
-import ClientExample from "@/components/client-example"
-import { SessionProvider, authConfigManager } from "@hono/auth-js/react"
-import Layout from "./layout"
+import ClientExample from "@/components/client-example";
+import { SessionProvider } from "@hono/auth-js/react";
+import Layout from "./layout";
+import {  Route, Switch } from "wouter";
+import { AuthSuccess } from "./auth-success";
 
-// authConfigManager.setConfig({
-//   basePath: '/api/auth',
-//   credentials:"include"
-// });
-
-export default  function App() {
-
+export default function App() {
   return (
     <SessionProvider>
-      <Layout>
-      <ClientExample />
-      </Layout>
+      <Switch>
+        <Route path="/">
+          <Layout>
+            <ClientExample />
+          </Layout>
+        </Route>
+        <Route path="/auth/success" component={AuthSuccess}>
+        <Route>404: No such page!</Route>
+      </Switch>
     </SessionProvider>
-  )
+  );
 }

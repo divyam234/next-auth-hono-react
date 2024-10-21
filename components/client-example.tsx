@@ -46,7 +46,7 @@ export default function ClientExample() {
       <h1 className="text-3xl font-bold">Client Side Rendering Usage</h1>
       <p>
         This page fetches session data client side using the{" "}
-        <CustomLink href="https://nextjs.authjs.dev/react#usesession">
+        <CustomLink href="https://authjs.dev/reference/nextjs#usesession">
           <code>useSession</code>
         </CustomLink>{" "}
         React Hook.
