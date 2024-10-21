@@ -7,17 +7,20 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu"
-import { signIn, signOut, useSession } from "@hono/auth-js/react"
-import { useOauthPopupLogin } from "./use-popup"
+import { authConfigManager, signIn, signOut, useSession } from "@hono/auth-js/react"
+import { useOauthPopupLogin } from "./use-oauth-popup"
 import { useEffect } from "react"
 
 export default function UserButton() {
 
   const { data: session} = useSession()
-  const { popUpSignin, status, error}= useOauthPopupLogin()
 
+  const { popUpSignin, status}= useOauthPopupLogin("github")
+  
   useEffect(() => {
-    if (status === "success") window.location.reload();
+    if (status === "success") {
+      authConfigManager.getConfig().fetchSession({ event: "refetch" });
+    }
     
   }, [status])
 
