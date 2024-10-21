@@ -51,6 +51,9 @@ export default function ClientExample() {
         </CustomLink>{" "}
         React Hook.
       </p>
+        <CustomLink className="font-bold" rel="noreferrer" target="_blank" href="/api/protected">
+         Protected Route
+        </CustomLink>
       
       {status === "loading" ? (
         <div>Loading...</div>

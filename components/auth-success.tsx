@@ -12,8 +12,13 @@ export function AuthSuccess() {
           error: null,
         };
         window.opener.postMessage(message, window.location.origin);
+      }else{
+        const message = {
+          status: "errored",
+          error: "",
+        };
+        window.opener.postMessage(message, window.location.origin);
       }
-
       window.close();
     }
   }, [session?.user, status]);

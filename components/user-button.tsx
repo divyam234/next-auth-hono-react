@@ -8,15 +8,26 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu"
 import { signIn, signOut, useSession } from "@hono/auth-js/react"
+import { useOauthPopupLogin } from "./use-popup"
+import { useEffect } from "react"
 
 export default function UserButton() {
 
-  const { data: session } = useSession()
+  const { data: session} = useSession()
+  const { popUpSignin, status, error}= useOauthPopupLogin()
+
+  useEffect(() => {
+    if (status === "success") window.location.reload();
+    
+  }, [status])
 
   return (
     <>
       {!session ? (
-        <Button onClick={() => signIn("github")}>Sign In</Button>
+       <div className="flex gap-2">
+         <Button onClick={() => signIn("github")}>Sign In</Button>
+         <Button onClick={popUpSignin}>Popup Login</Button>
+       </div>
       ) :
         (<DropdownMenu>
           <DropdownMenuTrigger asChild>

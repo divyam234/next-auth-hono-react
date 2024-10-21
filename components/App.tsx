@@ -13,7 +13,7 @@ export default function App() {
             <ClientExample />
           </Layout>
         </Route>
-        <Route path="/auth/success" component={AuthSuccess}>
+        <Route path="/auth/success" component={AuthSuccess}/>
         <Route>404: No such page!</Route>
       </Switch>
     </SessionProvider>
