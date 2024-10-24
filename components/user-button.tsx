@@ -13,7 +13,7 @@ import {
 	signOut,
 	useSession,
 } from "@hono/auth-js/react";
-import { useOauthPopupLogin } from "./use-oauth-popup";
+import { useOauthPopupLogin } from "@hono/auth-js/react";
 import { useEffect } from "react";
 
 export default function UserButton() {

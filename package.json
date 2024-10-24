@@ -21,8 +21,8 @@
     "Thang Huu Vu <hi@thvu.dev>"
   ],
   "dependencies": {
-    "@auth/core": "^0.35.0",
-    "@hono/auth-js": "^1.0.12",
+   "@auth/core": "^0.35.0",
+    "@hono/auth-js": "^1.0.13",
     "@radix-ui/react-avatar": "^1.1.1",
     "@radix-ui/react-collapsible": "^1.1.1",
     "@radix-ui/react-dropdown-menu": "^2.1.2",
@@ -30,7 +30,7 @@
     "@radix-ui/react-slot": "^1.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "hono": "^4.6.5",
+    "hono": "^4.6.6",
     "lucide-react": "^0.453.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -39,16 +39,16 @@
     "wouter": "^3.3.5"
   },
   "devDependencies": {
-    "@types/node": "^22.7.7",
-    "@types/react": "^18.3.11",
+    "@types/node": "^22.7.9",
+    "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.3",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.14",
     "typescript": "^5.6.3",
-    "vite": "^5.4.9",
+    "vite": "^5.4.10",
     "vite-tsconfig-paths": "^5.0.1",
-    "wrangler": "^3.81.0"
+    "wrangler": "^3.83.0"
   }
 }
